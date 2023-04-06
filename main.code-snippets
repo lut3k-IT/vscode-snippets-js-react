@@ -1,0 +1,164 @@
+{
+  /* -------------------------------------------------------------------------- */
+  /*                              SIMPLE JAVASCRIPT                             */
+  /* -------------------------------------------------------------------------- */
+  "Print to console": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "clg",
+    "body": ["console.log($1);"],
+    "description": "Print to console"
+  },
+  "Print error": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "cler",
+    "body": ["console.error(${1:error});"],
+    "description": "Print error to console"
+  },
+  "Fast arrow": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "fa",
+    "body": ["($1) => {", "  $0", "}"],
+    "description": "Arrow function"
+  },
+  "Fast return arrow": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "far",
+    "body": ["($1) => ($0)"],
+    "description": "Arrow function with instant return"
+  },
+  "Ternary operator": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "ter",
+    "body": ["is${1:Name} ? ($2) : ($3)"],
+    "description": "ternary operator"
+  },
+  "String interpolation": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "si",
+    "body": ["${$1}"],
+    "description": "string interpolation"
+  },
+  /* -------------------------------------------------------------------------- */
+  /*                                   EXPORTS                                  */
+  /* -------------------------------------------------------------------------- */
+  "Export default component": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "exd",
+    "body": ["export { default as $1 } from './$1';"],
+    "description": "export default component"
+  },
+  "Export default layout component": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "exdl",
+    "body": ["export { default as $1 } from './layout/$1';"],
+    "description": "export default layout component"
+  },
+  "Export default hook component": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "exdh",
+    "body": ["export { default as $1 } from './hooks/$1';"],
+    "description": "export default hook component"
+  },
+  "Export default nested component": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "exdne",
+    "body": ["export { default as $1 } from './$2/$1';"],
+    "description": "export default nested component"
+  },
+  /* -------------------------------------------------------------------------- */
+  /*                               REACT SPECIFIC                               */
+  /* -------------------------------------------------------------------------- */
+  "useEffect": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "effect",
+    "body": ["useEffect(() => {", "  $2", "}, [$1]);"],
+    "description": "React useEffect hook"
+  },
+  "useState": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "state",
+    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);"],
+    "description": "React useState hook"
+  },
+  "React div with class name": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "ddiv",
+    "body": ["<div className={style.$1}>$0</div>"],
+    "description": "React div with class name"
+  },
+  "Component: default": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "rfd",
+    "body": [
+      "import style from './${1:Name}.module.scss'",
+      "",
+      "export default function ${1:Name}() {",
+      "  return <div className={style.container}>$0</div>",
+      "}"
+    ],
+    "description": "React default functional component"
+  },
+  "Component: arrow": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "rfa",
+    "body": [
+      "import style from './${1:Name}.module.scss'",
+      "",
+      "const ${1:Name} = () => {",
+      "  return <div className={style.container}>",
+      "    $0",
+      "  </div>",
+      "};",
+      "",
+      "export default ${1:Name};"
+    ],
+    "description": "React arrow functional component"
+  },
+  "Component: arrow, props": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "rfap",
+    "body": [
+      "import style from './${1:Name}.module.scss'",
+      "",
+      "const ${1:Name} = (props) => {",
+      "const {} = props;",
+      "",
+      "  return <div className={style.container}>",
+      "    $0",
+      "  </div>",
+      "};",
+      "",
+      "export default ${1:Name};"
+    ],
+    "description": "React arrow functional component with props"
+  },
+  "Component: arrow, type, props": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rfatp",
+    "body": [
+      "import style from './${1:Name}.module.scss'",
+      "",
+      "type ${1:Name}Props = {};",
+      "",
+      "const ${1:Name} = (props: ${1:Name}Props) => {",
+      "const {} = props;",
+      "",
+      "  return <div className={style.container}>",
+      "    $0",
+      "  </div>",
+      "};",
+      "",
+      "export default ${1:Name};"
+    ],
+    "description": "React arrow functional component with type and props"
+  },
+  /* -------------------------------------------------------------------------- */
+  /*                                   STYLES                                   */
+  /* -------------------------------------------------------------------------- */
+  "Fast scss start": {
+    "scope": "scss",
+    "prefix": "impst",
+    "body": ["@import 'src/styles';", "", ".container {", "  $0", "}"],
+    "description": "Import main styles and add container class"
+  }
+}
