@@ -26,10 +26,20 @@
     "body": ["($1) => ($0)"],
     "description": "Arrow function with instant return"
   },
+  "Fast handler": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "han",
+    "body": [
+      "const handle${1/(.*)/${1:/capitalize}/} = ($2) => {",
+      "  $0",
+      "};"
+    ],
+    "description": "Arrow function with instant return"
+  },
   "Ternary operator": {
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": "ter",
-    "body": ["is${1:Name} ? ($2) : ($3)"],
+    "body": ["${1:isVisible} ? ($2) : ($3)"],
     "description": "ternary operator"
   },
   "String interpolation": {
@@ -151,6 +161,24 @@
       "export default ${1:Name};"
     ],
     "description": "React arrow functional component with type and props"
+  },
+  "Get async": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "prefix": "getasync",
+    "body": [
+      "const ${1|get,send|}${2/(.*)/${1:/capitalize}/} = async () => {",
+      "  try {",
+      "    setIs${2/(.*)/${1:/capitalize}/}Loading(true);",
+      "    const { ${3:data} } = await ${2/(.*)/${1:/capitalize}/}Api.${1|get,send|}${2/(.*)/${1:/capitalize}/}();",
+      "    set${5/(.*)/${1:/capitalize}/}(${3:data}$4);$0",
+      "  } catch (error) {",
+      "    console.error(error);",
+      "  } finally {",
+      "    setIs${2/(.*)/${1:/capitalize}/}Loading(false);",
+      "  }",
+      "};"
+    ],
+    "description": "Async function to get something with loading state"
   },
   /* -------------------------------------------------------------------------- */
   /*                                   STYLES                                   */
